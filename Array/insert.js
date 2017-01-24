@@ -7,14 +7,14 @@
  *     index >= target
  *  3) combine the 3 arrays in order of (1)(what we want to insert)(3)
  *
- * @param  {[array]}  value  [what we want to insert]
+ * @param  {[array]}  to_insert  [what we want to insert]
  * @param  {[number]} target [where we want it to be inserted]
  * @param  {[array]}  array  [where we want to value to be in]
  * @return {[array]}         [returns the array w/ inserted value or false]
  */
-function insert_into_arr (value,target,array) {
-  // make sure we use an integer target value
-  var check_value = (typeOf(value) == 'number');
+function insert_into_arr (to_insert, target, array) {
+  // make sure we use an integer target to_insert
+  var check_value = (typeOf(to_insert) == 'number');
   var check_target = (typeOf(target) == 'number');
   // array must not be empty
   // target and value must be a number
@@ -25,17 +25,17 @@ function insert_into_arr (value,target,array) {
     switch (target) {
       // target value is the last index of the array
       case (target == array.length):
-        array.push(value);
+        array.push(to_insert);
         break;
       // target value is the beginning of the array
       case (target == 0):
-        array.unshift(value);
+        array.unshift(to_insert);
         break;
       // target value is in between the beginning and the end of the array
       case (0 < target < array.length):
         var first_half = array.slice(0,target);
         var second_half = array.slice(target, array.length);
-        array = first_half.concat(value).concat(second_half);
+        array = first_half.concat(to_insert).concat(second_half);
         break;
       // target value is larger than the length of the array or is negative
       default:

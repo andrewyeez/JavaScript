@@ -1,3 +1,22 @@
+/**
+ * [quicksort description]
+ *  A simple divide and conquer algorithm. We will chose the pivot to be the
+ *  element at the end of the array; some tutorials/books will chose the pivot
+ *  to be the middle element or the first. Once the pivot is chosen we iterate
+ *  through the entire array and move values around to comply with the rule that
+ *  the left side will have the values less than the pivot and the right side
+ *  will have the values greater than the pivot. Once we finish traversing the
+ *  array, we "divide" the array into two partition. One parition will be the
+ *  left side holding the values lower than the pivot and the other partition
+ *  will be the values higher than the pivot. We repeat the process of selecting
+ *  the last element to be the pivot and traversing the array. It repeats itself
+ *  until all the elements are sorted from least to greatest.
+ *
+ * @param  {[Array]} arr   [Array containg the elements to be sorted]
+ * @param  {[type]} start  [the first index of the array]
+ * @param  {[type]} end    [the last index of the array]
+ * @return {[Array]}       [The sorted ascending array]
+ */
 function quicksort (arr, start, end) {
   if (start < end) {
     q = partition(arr,start,end);
@@ -6,6 +25,18 @@ function quicksort (arr, start, end) {
   }
   return arr;
 }
+/**
+ * [partition description]
+ *   The goal of this function is to pick a pivot element, place the pivot
+ *   element in its correct index order in the array and then return the
+ *   index of the pivot element after it has been placed in the right order.
+ *
+ * @param  {[Array]} arr [array containing the elements to be sorted]
+ * @param  {[Integer]} x   [the first index of the array]
+ * @param  {[Integer]} y   [the last index of the array, used to get the pivot value]
+ * @return {[Integer]}     [returns the position of the pivot element after it has
+ *                          been switched.]
+ */
 function partition (arr, x, y) {
   // pivot is the last index of the array
   var pivot = arr[y];
@@ -40,16 +71,25 @@ function partition (arr, x, y) {
       switch_place(arr,i,traverse);
     }
   }
+  // as we exit the for loop, we now have to switch
+  // the value of the pivot with the value of (i+1)
+  // this will place the pivot element right where it
+  // needs to be in the array for the array to be sorted
   switch_place(arr,i+1,y);
+  // the index of the pivot is the return value which will
+  // be used as a divider when we split the array into two
+  // sections
   return i+1;
 }
-
+/**
+ * [switch_place description]
+ *   Switch the value of arr[a] and arr[b].
+ * @param  {[Array]} arr [Array that may or may not have elements]
+ * @param  {[Integer]} a   [Index of the element to switch with b]
+ * @param  {[Integer]} b   [Index of the element to switch with a]
+ */
 function switch_place (arr,a,b) {
   var temp = arr[a];
   arr[a] = arr[b];
   arr[b] = temp;
 }
-
-var arr = [43,12,3,14,64,4,5,7,1];
-console.log('START: ' + arr);
-console.log('RESULT: ' + quicksort(arr,0,arr.length-1));

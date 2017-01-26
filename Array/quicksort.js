@@ -12,6 +12,15 @@
  *  the last element to be the pivot and traversing the array. It repeats itself
  *  until all the elements are sorted from least to greatest.
  *
+ *  Time
+ *  Best = O(n log(n)) [When partion array sizes are equal]
+ *  Average = O(n log(n)) [When partition of the array size are sometimes equal]
+ *  Worst = O(n^2) [When one partion is n-1 of the original array]
+ *
+ * Space
+ * Worst = O(n) [When one partition is n-1 of the original array and stack call
+ *               will be as big as n]
+ *
  * @param  {[Array]} arr   [Array containg the elements to be sorted]
  * @param  {[type]} start  [the first index of the array]
  * @param  {[type]} end    [the last index of the array]

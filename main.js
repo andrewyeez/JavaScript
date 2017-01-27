@@ -1,1 +1,2 @@
-// test run the js here
+// how can i "import" other JS files Q_Q
+//

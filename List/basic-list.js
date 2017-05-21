@@ -1,8 +1,11 @@
 // This is more like an ArrayList in java
 //
-// A list can grow and shrink dynamically
-// The size does not need to be known during creation
-// Can insert and remove from the middle without ???
+// 1)  A list can grow and shrink dynamically.
+// 2)  The size does not need to be known during creation.
+// 3)  This implementation uses the SPLICE method to insert
+//     a value in the middle of a list. (see BigO as array for inserts)
+// 4) This implementation uses the array data structure to
+//    find an element in a list. (see BigO as array for search)
 function BasicList() {
   this.data = [];
   this.size = 0;
@@ -36,5 +39,17 @@ function BasicList() {
     // index given is out of bounds.
     return false;
   };
+
+  // The find method makes use of the array data structure
+  // that we build upon when creating a list.
+  this.find = function(value){
+    for(var i=0; i < this.data.length; ++i){
+      if(this.data[i] == value){
+        return i;
+      }
+    }
+    // did not find the value
+    return false;
+  }
 
 }

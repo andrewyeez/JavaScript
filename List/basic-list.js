@@ -9,17 +9,7 @@
 function BasicList() {
   this.data = [];
   this.size = 0;
-
-  // this.position = 0;
-  // this.next = next;
-  // this.previous = previous;
-  // this.beginning = beginning;
-  // this.end = end;
-
-  //
-  // this.remove = remove;
-  // this.removeFrom = removeFrom;
-
+  this.position = 0;
   /**
    * [Insert]
    *
@@ -55,7 +45,7 @@ function BasicList() {
       return true;
     }
     return false;
-  }
+  };
 
   /**
    * [Insert After]
@@ -96,6 +86,5 @@ function BasicList() {
       if(this.data[i] == value){ return i; }
     }
     return false;
-  }
-
+  };
 }
